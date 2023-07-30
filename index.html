@@ -536,15 +536,26 @@
 // var targetDate = new Date(2023, 7, 27); // El mes se representa en base 0, por lo que 7 es agosto.
 // var daysRemaining = Math.floor((targetDate - currentDate) / (1000 * 60 * 60 * 24));
 
-var targetDate = new Date(2023, 7, 27, 0, 0, 0); // 27/08/2023
+// antiguo var targetDate = new Date(2023, 7, 27, 0, 0, 0); // 27/08/2023
+// antiguo var currentTime = new Date().getTime(); // Fecha actual en milisegundos desde el 01/01/1970
+// antiguo var timeRemaining = targetDate.getTime() - currentTime; // Tiempo restante en milisegundos
+
+   //  var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
+     var d = new Date(new Date().getTime() + 35 * 24 * 60 * 60 * 1000);
+   
+
+    var targetDate = new Date(2023, 7, 27, 0, 0, 0); // 27/07/2023 (el mes es 6 porque los meses se indexan desde 0)
 var currentTime = new Date().getTime(); // Fecha actual en milisegundos desde el 01/01/1970
 var timeRemaining = targetDate.getTime() - currentTime; // Tiempo restante en milisegundos
+var targetDateInFuture = new Date(new Date().getTime() + timeRemaining);
 
-console.log("Milisegundos restantes: ", timeRemaining);
-// console.log("Días restantes: ", daysRemaining);
-   //  var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
-    var d = new Date(new Date().getTime() + 35 * 24 * 60 * 60 * 1000);
+console.log(targetDateInFuture.toISOString());
 
+var daysRemaining = Math.ceil(timeRemaining / (24 * 60 * 60 * 1000)); // Convertir milisegundos a días y redondear hacia arriba
+console.log("targetDateInFuture", targetDateInFuture)
+console.log("diasFuncionales", d)
+
+var d =targetDateInFuture;
 console.log("que pt",d)
       // default example
       simplyCountdown('.simply-countdown-one', {
